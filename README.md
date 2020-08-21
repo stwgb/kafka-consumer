@@ -12,6 +12,6 @@ The basicKafkaConsumer is low level kafka-consumer with some basic configuration
 
 ## KafkaConsumerWithThreads
 
-Threads enable to interrupt the while true loop. With threads it a better way to shutdown the application.
-Therefore we create a class which implements `Runnable`, override the `run` method and create a `shutdown` method.
+Threads enable to interrupt the while true loop. With threads, it is a better way to shut down the application.
+Therefore, we create a class which implements `Runnable`, override the `run` method and create a `shutdown` method.
 In the `shutdown` method we can interrupt the `poll`. This will throw the `WakeUpException`.

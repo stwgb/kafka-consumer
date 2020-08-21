@@ -41,6 +41,12 @@ public class KafkaConsumerWithThreads {
         Runtime.getRuntime().addShutdownHook(new Thread( () -> {
             logger.info("Caught shutdown hook");
             ((ConsumerThread)kafkaConsumerThread).shutdown();
+            try {
+                latch.await();
+            } catch (InterruptedException e) {
+                logger.error("Interrupted Exception", e);
+            }
+            logger.info("Consumer has exited");
         }));
 
         try {
