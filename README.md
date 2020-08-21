@@ -15,3 +15,10 @@ The basicKafkaConsumer is low level kafka-consumer with some basic configuration
 Threads enable to interrupt the while true loop. With threads, it is a better way to shut down the application.
 Therefore, we create a class which implements `Runnable`, override the `run` method and create a `shutdown` method.
 In the `shutdown` method we can interrupt the `poll`. This will throw the `WakeUpException`.
+
+## Assign and Seek
+
+Assign and Seek is another API that is used to reply data is the most cases.
+This kind of consumer has no group id. First we need to assign a single or multiple
+topics to read from. Then we seek to a specific offset. If we have read our messages 
+we shut down the consumer.  
